@@ -4,9 +4,7 @@ class Person:
     def __init__(self, name: str, age: int) -> None:
         self.name = name
         self.age = age
-
-        if self.name not in Person.people:
-            Person.people[name] = self
+        Person.people[name] = self
 
 
 def create_person_list(people: list) -> list:
@@ -18,10 +16,8 @@ def create_person_list(people: list) -> list:
         partner_name = person_dict.get("wife")
         if partner_name:
             partner = Person.people.get(partner_name)
-            if partner:
-                instance.wife = partner
+            instance.wife = partner
         partner_name = person_dict.get("husband")
         if partner_name:
             partner = Person.people.get(partner_name)
-            if partner:
-                instance.husband = partner
+            instance.husband = partner
