@@ -1,8 +1,25 @@
 class Person:
-    # write your code here
-    pass
+    people = {}
+    def __init__(self, name: str, age: int):
+        self.name = name
+        self.age = age
+        if self.name not in Person.people:
+            Person.people[name] = self
 
 
 def create_person_list(people: list) -> list:
-    # write your code here
-    pass
+    person_list = [
+        Person(i.get("name"), i.get("age"))
+        for i in people
+    ]
+    for person_dict, instance in zip(people, person_list):
+        partner_name = person_dict.get("wife")
+        if partner_name:
+            partner = Person.people.get(partner_name)
+            if partner:
+                instance.wife = partner
+        partner_name = person_dict.get("husband")
+        if partner_name:
+            partner = Person.people.get(partner_name)
+            if partner:
+                instance.husband = partner
