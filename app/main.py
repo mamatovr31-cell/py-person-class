@@ -19,3 +19,4 @@ def create_person_list(people: list) -> list:
         partner_name = person_dict.get("husband")
         if partner_name and (partner := Person.people.get(partner_name)):
             instance.husband = partner
+    return person_list
