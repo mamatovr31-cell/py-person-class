@@ -14,10 +14,8 @@ def create_person_list(people: list) -> list:
     ]
     for person_dict, instance in zip(people, person_list):
         partner_name = person_dict.get("wife")
-        if partner_name and partner:
-            partner = Person.people.get(partner_name)
+        if partner_name and (partner := Person.people.get(partner_name)):
             instance.wife = partner
         partner_name = person_dict.get("husband")
-        if partner_name and partner:
-            partner = Person.people.get(partner_name)
+        if partner_name and (partner := Person.people.get(partner_name)):
             instance.husband = partner
